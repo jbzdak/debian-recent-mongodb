@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: jbzdak
+  description: |
+
+    A role that installs MongoDB on debian using MongoDB repositories.
+
+    Only supported version is debian Wheezy.
+  license: BSD
+  min_ansible_version: 1.9
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+        - wheezy
+
+  categories:
+    - database
+    - database:nosql
+
+dependencies: []
+

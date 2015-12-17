@@ -1,0 +1,18 @@
+---
+# tasks file for debian-recent-mongodb
+- name: Upload mongo key
+  copy: src=mongo.key dest=/root/mongo.key
+- name: Upload mongo key
+  apt_key: file=/root/mongo.key id=EA312927
+- name: Upload repository
+  copy: src=mongodb-org-3.2.list dest=/etc/apt/sources.list.d/mongodb-org-3.2.list
+- name: update apt
+  apt: update_cache=yes
+- name: install mongodb
+  apt: name={{item}} state=present
+  with_items:
+    - mongodb-org={{mongo_version}}
+    - mongodb-org-server={{mongo_version}}
+    - mongodb-org-shell={{mongo_version}}
+    - mongodb-org-mongos={{mongo_version}}
+    - mongodb-org-tools={{mongo_version}}
